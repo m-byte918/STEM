@@ -1,5 +1,5 @@
 # STEM Gas Sensor Web Display
-[![Github version](https://img.shields.io/badge/version-0.69-green.svg)]()
+[![Github version](https://img.shields.io/badge/version-0.69-green.svg)](http://lmgtfy.com/?q=69)
 <p>Pulls sensor data from a database and displays it asynchronysly and in real time</p>
 
 ```
