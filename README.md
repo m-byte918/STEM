@@ -1,4 +1,6 @@
-<h1>ASS SENSOR DEMO LOL</h1>
+# STEM Gas Sensor Web Display
+[![Github version](https://img.shields.io/badge/version-0.69-green.svg)]()
+<p>Pulls sensor data from a database and displays it asynchronysly and in real time</p>
 
 ```
   ____||____                   ____||____                   ____||____
