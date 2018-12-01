@@ -1,0 +1,10 @@
+.houses {
+    display: flex;
+    text-align: center;
+    float: left;
+}
+.house {
+    height: 90%;
+    width: 90%;
+    flex: 100%;
+}
