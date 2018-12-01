@@ -2,19 +2,37 @@
 <html>
     <head>
         <title>Sensor Demo</title>
+        <link rel="stylesheet" href="css/index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>Sensor Data</h1>
-        <h4>Sensor 1:</h4>
-        <p id="gas1">Gas level: loading...</p>
-        <p id="time1">Gas level: loading...</p>
-        <h4>Sensor 2:</h4>
-        <p id="gas2">Gas level: loading...</p>
-        <p id="time2">Time: loading...</p>
-        <h4>Sensor 3:</h4>
-        <p id="gas3">Gas level: loading...</p>
-        <p id="time3">Time: loading...</p>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <h1 align="center">Sensor Data</h1>
+        <div class="houses">
+            <figure>
+                <p text-align="left"><img class="house" src="img/house.jpg" alt="household"></img></p>
+                <figcaption>
+                    <h4>Sensor 1</h4>
+                    <p id="gas1">Gas level: loading...</p>
+                    <p id="time1">Time: loading...</p>
+                </figcaption>
+            </figure>
+            <figure>
+                <p text-align="center"><img class="house" src="img/house.jpg" alt="household"></img></p>
+                <figcaption>
+                    <h4>Sensor 2</h4>
+                    <p id="gas2">Gas level: loading...</p>
+                    <p id="time2">Time: loading...</p>
+                </figcaption>
+            </figure>
+            <figure>
+                <p text-align="right"><img class="house" src="img/house.jpg" alt="household"></img></p>
+                <figcaption>
+                    <h4>Sensor 3</h4>
+                    <p id="gas3">Gas level: loading...</p>
+                    <p id="time3">Time: loading...</p>
+                </figcaption>
+            </figure>
+        </div>
         <script src="main.js"></script>
     </body>
 </html>
