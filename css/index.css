@@ -8,3 +8,24 @@
     width: 90%;
     flex: 100%;
 }
+.dynamic-size-text {
+    font-size: 1.4vw;
+    font-family: Roboto Mono;
+}
+tab { 
+    word-spacing: 4.8em;
+}
+#pipelineTop {
+    margin-bottom: -1em;
+}
+.blinking1 {
+	animation: blinkingText 1.5s infinite;
+}
+.blinking2 {
+	animation: blinkingText 0.8s infinite;
+}
+@keyframes blinkingText{
+	0%   { color: #FF2D00;	   }
+	50%  { color: transparent; }
+	100% { color: #FF2D00;	   }
+}
