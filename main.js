@@ -3,7 +3,7 @@ $(function() {
     const leakLevel = 900;
     
     // Level to display gas leak warning
-    const imminentLeakLevel = 850;
+    const imminentLeakLevel = 800;
     
     // Tab (cause every other method of getting a non breaking tab doesn't seem to align ascii art)
     var t = "&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -43,107 +43,132 @@ $(function() {
         if (gasLevel1 < imminentLeakLevel) {
             document.getElementById("gas1").className = "";
             document.getElementById("gas1").innerHTML = "Gas level: " + gasLevel1;
+            h1_pl1 = "=========:=========:==========:=========";
+            h1_pl2 = "=========_=========_==========_=========";
+            h1_leak1 = h1_leak2 = h1_leak3 = h1_leak4 = t+t+t+t+t+t+t+t+t+t;
+        } else if (gasLevel1 > leakLevel) {
+            document.getElementById("gas1").className = "blinking2";
+            document.getElementById("gas1").innerHTML = "Gas level (leak detected): " + gasLevel1;
+            h1_pl1 = "=========:=========X==========:=========";
+            h1_pl2 = "=========_=========X==========_=========";
+            
+            // Display gas
+            switch(h1_frame++) {
+                case 1: { 
+                    h1_leak1 = t+t+t+t+"&nbsp;&nbsp;&nbsp;;"+t+t+t+t+t+"&nbsp;&nbsp;"; break;
+                }
+                case 2: break;
+                case 3: {
+                    h1_leak2 = t+t+t+t+"&nbsp;&nbsp;&nbsp;;;"+t+t+t+t+t+"&nbsp;"; break;
+                }
+                case 4: break;
+                case 5: {
+                    h1_leak3 = t+t+t+t+"&nbsp;&nbsp;;;;;"+t+t+t+t+t; break;
+                }
+                case 6: break;
+                case 7: {
+                    h1_leak4 = t+t+t+t+"&nbsp;;;;;;;"+t+t+t+t+"&nbsp;&nbsp;&nbsp;"; break;
+                }
+                case 8: break;
+                default: {
+                    h1_frame = 1;
+                    h1_leak1 = h1_leak2 = h1_leak3 = h1_leak4 = t+t+t+t+t+t+t+t+t+t;
+                }
+            }
         } else {
             document.getElementById("gas1").className = "blinking1";
             document.getElementById("gas1").innerHTML = "Gas level (leak imminent): " + gasLevel1;
-
-            if (gasLevel1 > leakLevel) {
-                document.getElementById("gas1").className = "blinking2";
-                document.getElementById("gas1").innerHTML = "Gas level (leak detected): " + gasLevel1;
-                h1_pl1 = "=========:=========X==========:=========";
-                h1_pl2 = "=========_=========X==========_=========";
-                
-                switch(h1_frame++) {
-                    case 1: { 
-                        h1_leak1 = t+t+t+t+"&nbsp;&nbsp;&nbsp;;"+t+t+t+t+t+"&nbsp;&nbsp;"; break;
-                    }
-                    case 2: {
-                        h1_leak2 = t+t+t+t+"&nbsp;&nbsp;&nbsp;;;"+t+t+t+t+t+"&nbsp;"; break;
-                    }
-                    case 3: {
-                        h1_leak3 = t+t+t+t+"&nbsp;&nbsp;;;;;"+t+t+t+t+t; break;
-                    }
-                    case 4: {
-                        h1_leak4 = t+t+t+t+"&nbsp;;;;;;;"+t+t+t+t+"&nbsp;&nbsp;&nbsp;"; break;
-                    }
-                    default: {
-                        h1_frame = 1;
-                        h1_leak1 = h1_leak2 = h1_leak3 = h1_leak4 = t+t+t+t+t+t+t+t+t+t;
-                    }
-                }
-                }
+            h1_pl1 = "=========:=========X==========:=========";
+            h1_pl2 = "=========_=========X==========_=========";
+            h1_leak1 = h1_leak2 = h1_leak3 = h1_leak4 = t+t+t+t+t+t+t+t+t+t;
         }
         
         // Update display under second house
         if (gasLevel2 < imminentLeakLevel) {
             document.getElementById("gas2").className = "";
             document.getElementById("gas2").innerHTML = "Gas level: " + gasLevel2;
+            h2_pl1 = ":=========:==========:=========:=======";
+            h2_pl2 = "_=========_==========_=========_=======";
+            h2_leak1 = h2_leak2 = h2_leak3 = h2_leak4 = t+t+t+t+t+t+t+t+t+"&nbsp;&nbsp;&nbsp;";
+        } else if (gasLevel2 > leakLevel) {
+            document.getElementById("gas2").className = "blinking2";
+            document.getElementById("gas2").innerHTML = "Gas level (leak detected): " + gasLevel2;
+            h2_pl1 = ":=========:=======X==:=========:=======";
+            h2_pl2 = "_=========_=======X==_=========_=======";
+            
+            // Display gas
+            switch(h2_frame++) {
+                case 1: { 
+                    h2_leak1 = t+t+t+t+";"+t+t+t+t+t+"&nbsp;"; break;
+                }
+                case 2: break;
+                case 3: {
+                    h2_leak2 = t+t+t+t+";;"+t+t+t+t+t; break;
+                }
+                case 4: break;
+                case 5: {
+                    h2_leak3 = t+t+t+"&nbsp;&nbsp;&nbsp;;;;;"+t+t+t+t+"&nbsp;&nbsp;&nbsp;"; break;
+                }
+                case 6: break;
+                case 7: {
+                    h2_leak4 = t+t+t+"&nbsp;&nbsp;;;;;;;"+t+t+t+t+"&nbsp;&nbsp;"; break;
+                }
+                case 8: break;
+                default: {
+                    h2_frame = 1;
+                    h2_leak1 = h2_leak2 = h2_leak3 = h2_leak4 = t+t+t+t+t+t+t+t+t+"&nbsp;&nbsp;&nbsp;";
+                }
+            }
         } else {
             document.getElementById("gas2").className = "blinking1";
             document.getElementById("gas2").innerHTML = "Gas level (leak imminent): " + gasLevel2;
-
-            if (gasLevel2 > leakLevel) {
-                document.getElementById("gas2").className = "blinking2";
-                document.getElementById("gas2").innerHTML = "Gas level (leak detected): " + gasLevel2;
-                h2_pl1 = ":=========:=======X==:=========:=======";
-                h2_pl2 = "_=========_=======X==_=========_=======";
-                
-                switch(h2_frame++) {
-                    case 1: { 
-                        h2_leak1 = t+t+t+t+";"+t+t+t+t+t+"&nbsp;"; break;
-                    }
-                    case 2: {
-                        h2_leak2 = t+t+t+t+";;"+t+t+t+t+t; break;
-                    }
-                    case 3: {
-                        h2_leak3 = t+t+t+"&nbsp;&nbsp;&nbsp;;;;;"+t+t+t+t+"&nbsp;&nbsp;&nbsp;"; break;
-                    }
-                    case 4: {
-                        h2_leak4 = t+t+t+"&nbsp;&nbsp;;;;;;;"+t+t+t+t+"&nbsp;&nbsp;"; break;
-                    }
-                    default: {
-                        h2_frame = 1;
-                        h2_leak1 = h2_leak2 = h2_leak3 = h2_leak4 = t+t+t+t+t+t+t+t+t+"&nbsp;&nbsp;&nbsp;";
-                    }
-                }
-            }
+            h2_pl1 = ":=========:=======X==:=========:=======";
+            h2_pl2 = "_=========_=======X==_=========_=======";
+            h2_leak1 = h2_leak2 = h2_leak3 = h2_leak4 = t+t+t+t+t+t+t+t+t+"&nbsp;&nbsp;&nbsp;";
         }
-        
 
         // Update display under third house
         if (gasLevel3 < imminentLeakLevel) {
             document.getElementById("gas3").className = "";
             document.getElementById("gas3").innerHTML = "Gas level: " + gasLevel3;
+            h3_pl1 = "===:=========:=========:=========<br>";
+            h3_pl2 = "===_=========_=========_=========<br>";
+            h3_leak1 = h3_leak2 = h3_leak3 = h3_leak4 = t+t+t+t+t+t+t+t+"&nbsp;<br>";
+        } else if (gasLevel3 > leakLevel) {
+            document.getElementById("gas3").className = "blinking2";
+            document.getElementById("gas3").innerHTML = "Gas level (leak detected): " + gasLevel3;
+            h3_pl1 = "===:=========:=====X===:=========<br>";
+            h3_pl2 = "===_=========_=====X===_=========<br>";
+            
+            // Display gas
+            switch(h3_frame++) {
+                case 1: { 
+                    h3_leak1 = t+t+t+t+"&nbsp;&nbsp;;"+t+t+t+"&nbsp;<br>"; break;
+                }
+                case 2: break;
+                case 3: {
+                    h3_leak2 = t+t+t+t+"&nbsp;&nbsp;;;"+t+t+t+"<br>"; break;
+                }
+                case 4: break;
+                case 5: {
+                    h3_leak3 = t+t+t+t+"&nbsp;;;;;"+t+t+"&nbsp;&nbsp;&nbsp;<br>"; break;
+                }
+                case 6: break;
+                case 7: {
+                    h3_leak4 = t+t+t+t+";;;;;;"+t+t+"&nbsp;&nbsp;<br>"; break;
+                }
+                case 8: break;
+                default: {
+                    h3_frame = 1;
+                    h3_leak1 = h3_leak2 = h3_leak3 = h3_leak4 = t+t+t+t+t+t+t+t+"&nbsp;<br>";
+                }
+            }
         } else {
             document.getElementById("gas3").className = "blinking1";
             document.getElementById("gas3").innerHTML = "Gas level (leak imminent): " + gasLevel3;
-            
-            if (gasLevel3 > leakLevel) {
-                document.getElementById("gas3").className = "blinking2";
-                document.getElementById("gas3").innerHTML = "Gas level (leak detected): " + gasLevel3;
-    
-                h3_pl1 = "===:=========:=====X===:=========<br>";
-                h3_pl2 = "===_=========_=====X===_=========<br>";
-                
-                switch(h3_frame++) {
-                    case 1: { 
-                        h3_leak1 = t+t+t+t+"&nbsp;&nbsp;;"+t+t+t+"&nbsp;<br>"; break;
-                    }
-                    case 2: {
-                        h3_leak2 = t+t+t+t+"&nbsp;&nbsp;;;"+t+t+t+"<br>"; break;
-                    }
-                    case 3: {
-                        h3_leak3 = t+t+t+t+"&nbsp;;;;;"+t+t+"&nbsp;&nbsp;&nbsp;<br>"; break;
-                    }
-                    case 4: {
-                        h3_leak4 = t+t+t+t+";;;;;;"+t+t+"&nbsp;&nbsp;<br>"; break;
-                    }
-                    default: {
-                        h3_frame = 1;
-                        h3_leak1 = h3_leak2 = h3_leak3 = h3_leak4 = t+t+t+t+t+t+t+t+"&nbsp;<br>";
-                    }
-                }
-            }
+            h3_pl1 = "===:=========:=====X===:=========<br>";
+            h3_pl2 = "===_=========_=====X===_=========<br>";
+            h3_leak1 = h3_leak2 = h3_leak3 = h3_leak4 = t+t+t+t+t+t+t+t+"&nbsp;<br>";
         }
         
         // Display bottom of pipeline + leak if needed
