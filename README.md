@@ -34,5 +34,6 @@ Sensor 1 (leak detected)        Sensor 2                     Sensor 3
             ,,,,
            ,,,,,,
 
-*When a sensor detects levels greater than <tbd>, it will display gas escaping from the pipeline
+*When a sensor detects levels greater than 300, it will throw an "imminent" warning
+*When a sensor detects levels greater than 700, it will throw a "leaking" warning and display gas escaping from the pipeline.
 ```
