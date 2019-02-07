@@ -3,15 +3,17 @@
     <head>
         <title>Sensor Demo</title>
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
         <meta name="viewport" content="initial-scale=1">
+        <script src="https://cdn.anychart.com/releases/v8/js/graphics.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
         <h1 align="center">Sensor Data</h1>
-        <div class="houses">
+        <div id="houses" class="houses">
             <figure>
-                <p text-align="left"><img class="house" src="img/house.jpg" alt="household"></img></p>
+                <p text-align="left"><img id="house1" class="house" src="img/house_icon.png" alt="household"></img></p>
                 <figcaption class="dynamic-size-text">
                     <h4>Sensor 1</h4>
                     <p id="gas1">Gas level: loading...</p>
@@ -19,7 +21,7 @@
                 </figcaption>
             </figure>
             <figure>
-                <p text-align="center"><img class="house" src="img/house.jpg" alt="household"></img></p>
+                <p text-align="center"><img id="house2" class="house" src="img/house_icon.png" alt="household"></img></p>
                 <figcaption class="dynamic-size-text">
                     <h4>Sensor 2</h4>
                     <p id="gas2">Gas level: loading...</p>
@@ -27,7 +29,7 @@
                 </figcaption>
             </figure>
             <figure>
-                <p text-align="right"><img class="house" src="img/house.jpg" alt="household"></img></p>
+                <p text-align="right"><img id="house3" class="house" src="img/house_icon.png" alt="household"></img></p>
                 <figcaption class="dynamic-size-text">
                     <h4>Sensor 3</h4>
                     <p id="gas3">Gas level: loading...</p>
@@ -35,14 +37,9 @@
                 </figcaption>
             </figure>
         </div>
-        <p class="dynamic-size-text" id="pipelineTop">
-            =========^=========^==========^=========^=========^==========^=========^==========^=========^=========^=========<br>
-            =========:=========:==========:=========:=========:==========:=========:==========:=========:=========:=========<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-        </p>
-        <p class="dynamic-size-text" id="pipelineBottom"></p>
+        <br>
+        <div id="stage-container" style="width: 2120px; height: 350px;"></div>
+        <img src="img/grass.png" style="width: 120%; height: 140%; margin-bottom: -30%; margin-left: -10%;">
         <script src="main.js"></script>
     </body>
 </html>

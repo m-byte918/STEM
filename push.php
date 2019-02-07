@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "u212332607_gay";
-$password = "mynamejeff123";
+$username = "u212332607_tchs";
+$password = "pickering";
 $dbname = "u212332607_stem";
 
 // Create connection
@@ -15,4 +15,11 @@ $sql = "INSERT INTO `gas_sensors` (`residence_id`, `gas_level`, `node_active`, `
 mysqli_query($conn, $sql);
 
 mysqli_close($conn);
+
+$file = fopen("dangerThreshold.txt", "r") or die("Unable to open file!");
+// Output one line until end-of-file
+while(!feof($file)) {
+  echo fgets($file);
+}
+fclose($file);
 ?>

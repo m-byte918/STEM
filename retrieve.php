@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "u212332607_gay";
-$password = "mynamejeff123";
+$username = "u212332607_tchs";
+$password = "pickering";
 $dbname = "u212332607_stem";
 
 $nodesWithHistoricalData = 0;
